@@ -11,12 +11,12 @@ const Cart = (props) => {
     return (
         <div className="cart">
             <h3>Cart</h3>
-            <ul>{props.cart.map((product) => <li key={product.id} >{product.name} {formatPrice(product.price)}</li>)}</ul>
+            <ul>{props.cart.map((product) => <li key={product.id} >{product.name}: {formatPrice(product.price)}</li>)}</ul>
             <h4>Subtotal: {formatPrice(subTotal)}</h4>
             <h4>Tax: {formatPrice(tax)}</h4>
             <h4>Total: {formatPrice(total)}</h4>
             <div className="checkout">
-                <CheckOutForm total={total} />
+                <CheckOutForm total={total} handleFormReset={props.handleFormReset} />
             </div>
         </div>
     )

@@ -34,13 +34,21 @@ class CheckOutForm extends Component {
             window.alert("Input is not valid \n Zip code is not valid")
         } else {
             window.alert(`Purchase complete. You will be charged ${formatPrice(total)}`)
+            event.target.reset();
+            this.setState({
+                first: "",
+                last:  "",
+                email: "",
+                creditcard: "",
+                zipcode: "",
+            })
         }
     }
 
     render() {
         const { first, last, email, creditcard, zipcode } = this.state;
         return (
-            <form onSubmit={this.handleSubmit} id="checkout">
+            <form onReset={this.props.handleFormReset} onSubmit={this.handleSubmit} id="checkout">
                 <h3>Checkout</h3>
                 <label htmlFor="first">First Name</label>
                 <input onChange={this.handleChange} type="text" name="first" id="first" value={first}/>
