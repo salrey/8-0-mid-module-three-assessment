@@ -1,22 +1,41 @@
 import { Component } from "react";
 import "./App.css";
+import ProductCard from "./components/ProductCard";
+import productData from "./data/productData";
+
 
 //Set up App as class component 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-
+      cart: [],
+      products: productData,
     }
   }
 
   //Add methods here 
+  handleAddToCart = (product) => {
+    const { cart } = this.state;
+    this.setState({
+      cart: [...cart, product]
+    })
+  }
 
   render() {
     //Add your variables here 
       //Destructure your state
+      const { cart } = this.state
       //Add a variable (products) that'll take your products data and map that into ProductCard, containing key property, and passing as properties each product in the map and the button method to addToCart 
-      //Add a 
+      const products = this.state.products.map((product) => {
+        return (
+          <ProductCard 
+            key={product.id}
+            product={product}
+            handleAddToCart={this.handleAddToCart}
+          />
+        )
+      })
     return (
       //NOTES:
       //Add your children components that'll share the state above
@@ -33,13 +52,16 @@ class App extends Component {
       <div className="App" id="app-container">
         {/* Components/sections */}
         {/* products section that'll grab variable products*/}
-        {/* <div id="product-list-container">{products}</div> */}
+        <div className="products" id="product-list-container">
+          <h3>Garage Sale</h3>
+          {products}
+        </div>
         {/* Cart component with a CheckOutForm Component*/}
         {/* <Cart cart={cart} />
               <CheckoutForm buyNowHandler={this.buyNow} /> */}
 
         {/* CSS styling test begins  */}
-        <div className="products">
+        {/* <div className="products">
           <h3>Garage Sale</h3>
           <div className="product">product</div>
           <div className="product">product</div>
@@ -62,7 +84,7 @@ class App extends Component {
             <h3>Checkout</h3>
             <p>Buy Now</p>
           </div>
-        </div>
+        </div> */}
         {/* CSS styling test ends */}
 
       </div>
