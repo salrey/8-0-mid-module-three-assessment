@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./App.css";
+import Cart from "./components/Cart";
 import ProductCard from "./components/ProductCard";
 import productData from "./data/productData";
 
@@ -50,8 +51,6 @@ class App extends Component {
 
         //Set up App container 
       <div className="App" id="app-container">
-        {/* Components/sections */}
-        {/* products section that'll grab variable products*/}
         <div className="products" id="product-list-container">
           <h3>Garage Sale</h3>
           {products}
@@ -59,6 +58,7 @@ class App extends Component {
         {/* Cart component with a CheckOutForm Component*/}
         {/* <Cart cart={cart} />
               <CheckoutForm buyNowHandler={this.buyNow} /> */}
+         <Cart cart={cart} />
 
         {/* CSS styling test begins  */}
         {/* <div className="products">

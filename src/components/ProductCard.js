@@ -2,6 +2,7 @@ import formatPrice from "../helpers/formatPrice"
 
 const ProductCard = (props) => {
     const { name, price, description, img } = props.product
+    
     return (
         <div className="product-item-container">
             <h4>{name}</h4>
