@@ -1,4 +1,5 @@
 import formatPrice from "../helpers/formatPrice";
+import CheckOutForm from "./CheckOutForm";
 
 const Cart = (props) => {
 
@@ -14,6 +15,9 @@ const Cart = (props) => {
             <h4>Subtotal: {formatPrice(subTotal)}</h4>
             <h4>Tax: {formatPrice(tax)}</h4>
             <h4>Total: {formatPrice(total)}</h4>
+            <div className="checkout">
+                <CheckOutForm total={total} />
+            </div>
         </div>
     )
 }

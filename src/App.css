@@ -1,15 +1,33 @@
 .App {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 100px; 
 }
 
 .products {
     grid-row: span 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    column-gap: 50px;
 }
 
 .products h3 {
     grid-column: span 2;
+}
+
+.products button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form * {
+    display: block;
+}
+
+form h3 {
+    margin-top: 50px;
+}
+
+form button {
+    margin-top: 10px;
 }
